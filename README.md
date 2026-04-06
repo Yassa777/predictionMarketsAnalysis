@@ -78,6 +78,9 @@ This creates a zstd-compressed tar archive (`data.tar.zst`) and removes the `dat
 │       ├── blocks/
 │       ├── markets/
 │       └── trades/
+├── research/
+│   ├── tables/             # Tracked CSV tables for writeups / papers
+│   └── latex_charts/       # Tracked chart assets for LaTeX workflows
 ├── docs/                   # Documentation
 └── output/                 # Analysis outputs (figures, CSVs)
 ```
@@ -88,6 +91,11 @@ This creates a zstd-compressed tar archive (`data.tar.zst`) and removes the `dat
 - [Writing Analyses](docs/ANALYSIS.md) - Guide for writing custom analysis scripts
 - [Facet 1 Unified Dataset](docs/FACET1_UNIFIED_DATASET.md) - Market-level last-trade dataset builder and output schema
 - [Evolution Log](docs/EVOLUTION_LOG.md) - Timestamped implementation milestones
+
+## Research Outputs
+
+- [Facet 1 Tables](research/tables/facet1/README.md) - Tracked calibration tables for writeups
+- [Facet 1 LaTeX Charts](research/latex_charts/facet1/README.md) - Tracked PDF/PNG figure assets for papers
 
 ## Contributing
 

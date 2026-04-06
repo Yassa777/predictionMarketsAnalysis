@@ -54,3 +54,34 @@ Result:
 - end-to-end build completed successfully on 2026-04-06
 - final dataset size: `811,010` rows
 - final bucket table size: `40` rows
+
+### Baseline Facet 1 Calibration Analysis Added
+
+Added:
+[facet1_unified_calibration_curves.py](../src/analysis/comparison/facet1_unified_calibration_curves.py)
+
+Outputs:
+
+- `output/facet1_unified_calibration_curves.png`
+- `output/facet1_unified_calibration_curves.pdf`
+- `output/facet1_unified_calibration_curves.csv`
+- `output/facet1_unified_calibration_curves.json`
+
+Intent:
+
+- plot the first baseline Facet 1 calibration curves from the derived market-level dataset
+- compare Kalshi, Polymarket, and pooled calibration side by side
+- expose bucket counts and 95% Wilson confidence intervals for each 5-cent bucket
+
+### Tracked Research Output Folders Added
+
+Added:
+
+- [research/tables/facet1](../research/tables/facet1/README.md)
+- [research/latex_charts/facet1](../research/latex_charts/facet1/README.md)
+
+Intent:
+
+- keep publication-facing CSV tables under version control
+- keep LaTeX-ready chart assets under version control
+- separate tracked research artifacts from ignored generated datasets in `data/derived/`

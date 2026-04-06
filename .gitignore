@@ -27,6 +27,10 @@ research/*
 !research/fig
 !research/analysis
 !research/sections
+!research/tables/
+!research/tables/**
+!research/latex_charts/
+!research/latex_charts/**
 
 scratchpad
 
