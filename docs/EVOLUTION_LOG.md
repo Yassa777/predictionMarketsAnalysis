@@ -85,3 +85,21 @@ Intent:
 - keep publication-facing CSV tables under version control
 - keep LaTeX-ready chart assets under version control
 - separate tracked research artifacts from ignored generated datasets in `data/derived/`
+
+### Facet 1 Slice Analyses Added
+
+Added:
+
+- [build_facet1_enriched_market_dataset.py](../scripts/build_facet1_enriched_market_dataset.py)
+- [facet1_monthly_drift.py](../src/analysis/comparison/facet1_monthly_drift.py)
+- [facet1_liquidity_calibration.py](../src/analysis/comparison/facet1_liquidity_calibration.py)
+- [facet1_kalshi_category_calibration.py](../src/analysis/comparison/facet1_kalshi_category_calibration.py)
+- [FACET1_SLICE_ANALYSES.md](./FACET1_SLICE_ANALYSES.md)
+
+Intent:
+
+- enrich the market-level Facet 1 dataset with month, lifespan, and liquidity metadata
+- measure calibration drift over time
+- measure how calibration changes with within-platform liquidity
+- isolate Kalshi category groups before attempting Polymarket category mapping
+- document the deferred follow-up work needed for Polymarket categories and time-to-expiry horizons

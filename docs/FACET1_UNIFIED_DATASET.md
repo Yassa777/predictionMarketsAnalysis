@@ -31,6 +31,8 @@ Generated under `data/derived/`:
 - `facet1_unified_last_trade_dataset.parquet`
 - `facet1_unified_last_trade_5c_buckets.parquet`
 - `facet1_unified_last_trade_5c_buckets.csv`
+- `facet1_enriched_market_dataset.parquet` via the follow-on builder in
+  [build_facet1_enriched_market_dataset.py](../scripts/build_facet1_enriched_market_dataset.py)
 
 These files are intentionally Git-ignored because they are generated artifacts.
 
@@ -124,3 +126,5 @@ Materialized on 2026-04-06:
 - The builder is optimized to avoid a single giant Polymarket join.
 - It prepares filtered Polymarket inputs first, then computes chunked market-level outputs.
 - Temporary DuckDB spill and chunk files are written under `data/derived/` during execution and then merged into final outputs.
+- Slice analyses built on top of this dataset are documented in
+  [FACET1_SLICE_ANALYSES.md](./FACET1_SLICE_ANALYSES.md).
