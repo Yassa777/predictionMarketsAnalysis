@@ -90,6 +90,7 @@ This creates a zstd-compressed tar archive (`data.tar.zst`) and removes the `dat
 - [Data Schemas](docs/SCHEMAS.md) - Parquet file schemas for markets and trades
 - [Writing Analyses](docs/ANALYSIS.md) - Guide for writing custom analysis scripts
 - [Facet 1 Unified Dataset](docs/FACET1_UNIFIED_DATASET.md) - Market-level last-trade dataset builder and output schema
+- [Facet 1 Slice Analyses](docs/FACET1_SLICE_ANALYSES.md) - Enriched dataset, monthly drift, liquidity, and Kalshi category results
 - [Evolution Log](docs/EVOLUTION_LOG.md) - Timestamped implementation milestones
 
 ## Research Outputs
