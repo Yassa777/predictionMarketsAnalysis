@@ -37,6 +37,12 @@ This is structured in two phases: **Foundation** (statistical analysis to map wh
 
 **What it decides**: If calibration is near-perfect everywhere, the modeling phase pivots to pure microstructure. If specific categories or price ranges are miscalibrated, those become the target zones for all downstream work.
 
+Implementation note as of 2026-04-07:
+
+- baseline calibration, monthly drift, liquidity, and Kalshi category slices are implemented
+- time-to-expiry is now implemented as a separate horizon-snapshot dataset in
+  [FACET1_TIME_TO_EXPIRY.md](./FACET1_TIME_TO_EXPIRY.md)
+
 ---
 
 ### Facet 2 — Microstructure & Short-Term Price Prediction

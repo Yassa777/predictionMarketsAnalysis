@@ -1,6 +1,6 @@
 # Facet 1 Slice Analyses
 
-Last updated: 2026-04-06
+Last updated: 2026-04-20
 
 ## Purpose
 
@@ -11,6 +11,9 @@ This document records the methodology and current results for the next Phase 1 /
 - Kalshi category groups
 
 It also documents the enriched market-level dataset that makes these slices reusable.
+
+For a consolidated interpretation across baseline calibration, slices, and
+time-to-expiry, see [FACET1_RESULTS_SUMMARY.md](./FACET1_RESULTS_SUMMARY.md).
 
 ## Enriched Market Dataset
 
@@ -206,11 +209,8 @@ Still needed:
 
 ### Time-To-Expiry Slice
 
-Still needed:
+Implemented separately in:
+[FACET1_TIME_TO_EXPIRY.md](./FACET1_TIME_TO_EXPIRY.md)
 
-- build a separate horizon snapshot dataset, not another slice of the last-trade table
-- choose cutoffs like `30d`, `7d`, `1d`, `6h`, `1h`
-- for each horizon, keep the last trade observed before `close_ts - horizon`
-- then rerun the same 5-cent calibration logic at each horizon
-
-This is separate because the current Facet 1 dataset only captures the final pre-close trade, so it cannot answer “are prices better 1 day out than 30 days out?” on its own.
+It remains separate because the current last-trade dataset only captures the
+final pre-close trade and cannot answer the horizon question on its own.

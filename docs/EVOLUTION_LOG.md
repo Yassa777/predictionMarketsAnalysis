@@ -103,3 +103,31 @@ Intent:
 - measure how calibration changes with within-platform liquidity
 - isolate Kalshi category groups before attempting Polymarket category mapping
 - document the deferred follow-up work needed for Polymarket categories and time-to-expiry horizons
+
+### Facet 1 Time-To-Expiry Added
+
+Added:
+
+- [build_facet1_time_to_expiry_dataset.py](../scripts/build_facet1_time_to_expiry_dataset.py)
+- [facet1_time_to_expiry_calibration.py](../src/analysis/comparison/facet1_time_to_expiry_calibration.py)
+- [FACET1_TIME_TO_EXPIRY.md](./FACET1_TIME_TO_EXPIRY.md)
+
+Intent:
+
+- build a separate market-horizon dataset rather than overloading the last-trade table
+- measure calibration at fixed horizons before close
+- expose how much of the horizon signal is really a stale-market effect
+
+## 2026-04-20
+
+### Facet 1 Results Summary Added
+
+Added:
+
+- [FACET1_RESULTS_SUMMARY.md](./FACET1_RESULTS_SUMMARY.md)
+
+Intent:
+
+- consolidate the implemented Facet 1 findings into one document
+- connect the baseline, slice, and time-to-expiry outputs in one interpretation
+- make the next analysis steps explicit from the current evidence

@@ -128,3 +128,5 @@ Materialized on 2026-04-06:
 - Temporary DuckDB spill and chunk files are written under `data/derived/` during execution and then merged into final outputs.
 - Slice analyses built on top of this dataset are documented in
   [FACET1_SLICE_ANALYSES.md](./FACET1_SLICE_ANALYSES.md).
+- A consolidated interpretation of all implemented Facet 1 outputs is in
+  [FACET1_RESULTS_SUMMARY.md](./FACET1_RESULTS_SUMMARY.md).
