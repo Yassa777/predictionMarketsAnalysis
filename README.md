@@ -93,10 +93,16 @@ This creates a zstd-compressed tar archive (`data.tar.zst`) and removes the `dat
 - [Facet 1 Results Summary](docs/FACET1_RESULTS_SUMMARY.md) - Consolidated interpretation of the implemented Facet 1 analyses
 - [Facet 1 Slice Analyses](docs/FACET1_SLICE_ANALYSES.md) - Enriched dataset, monthly drift, liquidity, and Kalshi category results
 - [Facet 1 Time-To-Expiry](docs/FACET1_TIME_TO_EXPIRY.md) - Horizon snapshot dataset and calibration results before close
+- [Facet 1 Polymarket Categories](docs/FACET1_POLYMARKET_CATEGORIES.md) - Deterministic Polymarket category mapping and cross-platform category calibration
+- [Facet 2 Microstructure](docs/FACET2_MICROSTRUCTURE.md) - Kalshi-first short-horizon trade-flow diagnostics
+- [Facet 3 Lifespan](docs/FACET3_LIFESPAN.md) - Lifespan, normalized activity, late-stage movement, and stale candidate outputs
+- [Facet 4 Participation](docs/FACET4_PARTICIPATION.md) - Participation-depth and wallet-concentration outputs
+- [Modeling Decision Tables](docs/MODELING_DECISION_TABLE.md) - Temporal holdout benchmarks for simple feature slices
 - [Evolution Log](docs/EVOLUTION_LOG.md) - Timestamped implementation milestones
 
 ## Research Outputs
 
+- [Research Tables](research/tables/README.md) - Tracked CSV packet for remote writing and analysis
 - [Facet 1 Tables](research/tables/facet1/README.md) - Tracked calibration tables for writeups
 - [Facet 1 LaTeX Charts](research/latex_charts/facet1/README.md) - Tracked PDF/PNG figure assets for papers
 

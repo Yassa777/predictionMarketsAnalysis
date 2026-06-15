@@ -131,3 +131,24 @@ Intent:
 - consolidate the implemented Facet 1 findings into one document
 - connect the baseline, slice, and time-to-expiry outputs in one interpretation
 - make the next analysis steps explicit from the current evidence
+
+## 2026-06-15
+
+### Remote Research CSV Packet Added
+
+Added:
+
+- [FACET1_POLYMARKET_CATEGORIES.md](./FACET1_POLYMARKET_CATEGORIES.md)
+- [FACET2_MICROSTRUCTURE.md](./FACET2_MICROSTRUCTURE.md)
+- [FACET3_LIFESPAN.md](./FACET3_LIFESPAN.md)
+- [FACET4_PARTICIPATION.md](./FACET4_PARTICIPATION.md)
+- [MODELING_DECISION_TABLE.md](./MODELING_DECISION_TABLE.md)
+- [research/tables](../research/tables/README.md)
+
+Intent:
+
+- make the project usable remotely without the main parquet database
+- export compact CSVs for Polymarket category mapping, microstructure,
+  lifespan, participation depth, and modeling-decision checks
+- keep table manifests next to the CSV folders so paper-writing and exploratory
+  analysis can start from GitHub alone
