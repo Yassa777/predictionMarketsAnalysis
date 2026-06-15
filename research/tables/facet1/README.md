@@ -16,5 +16,16 @@ Current files:
 - `facet1_kalshi_category_calibration_bucket_details.csv`
 - `facet1_time_to_expiry_calibration.csv`
 - `facet1_time_to_expiry_calibration_bucket_details.csv`
+- `facet1_staleness_profile.csv`
+- `facet1_freshness_controlled_calibration.csv`
+- `facet1_freshness_controlled_calibration_bucket_details.csv`
+- `facet1_kalshi_category_liquidity_controls.csv`
+- `facet1_kalshi_category_liquidity_controls_bucket_details.csv`
+- `facet1_kalshi_category_liquidity_controls_regression_coefficients.csv`
+- `facet1_kalshi_category_liquidity_controls_category_mid_drilldown.csv`
+- `facet1_kalshi_category_freshness_controls.csv`
+- `facet1_kalshi_category_freshness_controls_bucket_details.csv`
+- `facet1_kalshi_category_freshness_controls_regression_coefficients.csv`
+- `facet1_kalshi_category_freshness_controls_category_mid_drilldown.csv`
 
 These are publication-friendly exports copied from the main analysis outputs so they can be versioned in Git and used directly in notes, papers, or downstream tooling.

@@ -1,0 +1,6 @@
+platform,sample_scope,selected_market_count,source_trade_count,order_flow_bucket,market_hour_count,contract_volume,mean_order_flow_imbalance,mean_next_hour_return_cents,median_next_hour_return_cents,positive_next_hour_share
+kalshi,top_100_kalshi_markets_by_facet1_liquidity,100,5090947,strong_no_pressure,7407,159892184.0,-0.9639516569101985,0.4385400290422794,0.010223054443386559,0.5269339813689753
+kalshi,top_100_kalshi_markets_by_facet1_liquidity,100,5090947,moderate_no_pressure,3059,187527321.0,-0.506240410317825,0.32149198200004336,0.3751420992800405,0.6466165413533834
+kalshi,top_100_kalshi_markets_by_facet1_liquidity,100,5090947,balanced,3523,473969519.0,0.014243710337503582,0.18368811289186526,0.2631128241238443,0.6207777462390008
+kalshi,top_100_kalshi_markets_by_facet1_liquidity,100,5090947,moderate_yes_pressure,6017,846419201.0,0.5320150977789029,-0.0867856368970542,0.09561010429472105,0.57271065314941
+kalshi,top_100_kalshi_markets_by_facet1_liquidity,100,5090947,strong_yes_pressure,29521,679204989.0,0.9683397962795519,-0.17093661305362665,0.0,0.26005216625453065

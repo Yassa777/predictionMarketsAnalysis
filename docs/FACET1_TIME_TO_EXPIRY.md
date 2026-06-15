@@ -38,6 +38,11 @@ Outputs:
 - `data/derived/facet1_time_to_expiry_5c_buckets.parquet`
 - `data/derived/facet1_time_to_expiry_5c_buckets.csv`
 
+Follow-on staleness builder:
+
+- `data/derived/facet1_time_to_expiry_enriched_dataset.parquet` via
+  [build_facet1_time_to_expiry_enriched_dataset.py](../scripts/build_facet1_time_to_expiry_enriched_dataset.py)
+
 ## Method
 
 The dataset keeps the same fixed reference-side convention as the baseline Facet 1 work:
@@ -177,4 +182,9 @@ This result makes the remaining proposal more concrete:
 
 - [research/tables/facet1](../research/tables/facet1/README.md)
 - [research/latex_charts/facet1](../research/latex_charts/facet1/README.md)
+
+## Follow-On Document
+
+Freshness and staleness controls now live in:
+[FACET1_STALENESS.md](./FACET1_STALENESS.md)
 - [FACET1_RESULTS_SUMMARY.md](./FACET1_RESULTS_SUMMARY.md)

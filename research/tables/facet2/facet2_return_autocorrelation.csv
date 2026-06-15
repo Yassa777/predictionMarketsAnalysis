@@ -1,0 +1,5 @@
+platform,sample_scope,selected_market_count,source_trade_count,lag_observations,observation_count,return_autocorrelation,mean_return_cents,stddev_return_cents
+kalshi,top_100_kalshi_markets_by_facet1_liquidity,100,5090947,1,49427,-0.022756494517160622,-0.00939767921748176,2.008532331966172
+kalshi,top_100_kalshi_markets_by_facet1_liquidity,100,5090947,3,49227,-0.0028400846770754787,-0.009686401163680657,1.9469244674059294
+kalshi,top_100_kalshi_markets_by_facet1_liquidity,100,5090947,6,48927,0.0034150152515150605,-0.01015525586615568,1.931340255598054
+kalshi,top_100_kalshi_markets_by_facet1_liquidity,100,5090947,24,47127,-0.005933493153021847,-0.009897357809431415,1.8986031723381205

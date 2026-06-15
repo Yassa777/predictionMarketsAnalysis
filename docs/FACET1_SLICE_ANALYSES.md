@@ -36,6 +36,7 @@ The enriched dataset starts from:
 and attaches:
 
 - `event_ticker` and `category_raw` for Kalshi
+- `category_group`, `category_mid`, and `category_subcategory` for Kalshi
 - `market_start_ts`
 - `close_month`
 - `lifespan_hours`
@@ -115,6 +116,14 @@ Method:
 - recompute bucket calibration inside each category group
 
 This slice is Kalshi-only for now because the Polymarket market parquet does not expose a native category field.
+
+## Controlled Follow-Ups
+
+The uncontrolled slice summaries in this document now have two dedicated
+follow-on documents:
+
+- [FACET1_STALENESS.md](./FACET1_STALENESS.md) for freshness and staleness controls on the horizon dataset
+- [FACET1_CATEGORY_CONTROLS.md](./FACET1_CATEGORY_CONTROLS.md) for Kalshi category results conditioned on liquidity and freshness
 
 ## Current Results
 

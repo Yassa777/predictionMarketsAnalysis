@@ -8,15 +8,17 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from src.analysis.comparison.facet1_slice_utils import (
+    Facet1Analysis,
     compute_bucket_calibration,
     compute_slice_summary,
     load_enriched_dataset,
+    materialize_kalshi_category_hierarchy,
 )
-from src.analysis.kalshi.util.categories import GROUP_COLORS, get_group
-from src.common.analysis import Analysis, AnalysisOutput
+from src.analysis.kalshi.util.categories import GROUP_COLORS
+from src.common.analysis import AnalysisOutput
 
 
-class Facet1KalshiCategoryCalibrationAnalysis(Analysis):
+class Facet1KalshiCategoryCalibrationAnalysis(Facet1Analysis):
     """Compare Kalshi calibration across top-level category groups."""
 
     def __init__(self, dataset_path: Path | str | None = None):
@@ -27,20 +29,13 @@ class Facet1KalshiCategoryCalibrationAnalysis(Analysis):
         self.dataset_path = Path(dataset_path) if dataset_path else None
         self.bucket_details: pd.DataFrame | None = None
 
-    def save(
+    def save_additional_outputs(
         self,
-        output_dir: Path | str,
-        formats: list[str] | None = None,
-        dpi: int = 300,
+        output_dir: Path,
+        formats: list[str],
     ) -> dict[str, Path]:
-        if formats is None:
-            formats = ["png", "pdf", "csv"]
-        else:
-            formats = [fmt for fmt in formats if fmt != "gif"]
-
-        saved = super().save(output_dir, formats, dpi)
+        saved: dict[str, Path] = {}
         if self.bucket_details is not None and "csv" in formats:
-            output_dir = Path(output_dir)
             detail_path = output_dir / f"{self.name}_bucket_details.csv"
             self.bucket_details.to_csv(detail_path, index=False)
             saved["bucket_details_csv"] = detail_path
@@ -48,8 +43,9 @@ class Facet1KalshiCategoryCalibrationAnalysis(Analysis):
 
     def run(self) -> AnalysisOutput:
         df = load_enriched_dataset(self.dataset_path)
+        df = materialize_kalshi_category_hierarchy(df)
         df = df[df["platform"] == "kalshi"].copy()
-        df["category_group"] = df["category_raw"].fillna("independent").map(get_group)
+        df["category_group"] = df["category_group"].fillna("Other")
 
         bucket_df = compute_bucket_calibration(df, ["category_group"])
         summary_df = compute_slice_summary(bucket_df, ["category_group"])

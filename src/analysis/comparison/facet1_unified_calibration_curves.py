@@ -9,25 +9,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from src.common.analysis import Analysis, AnalysisOutput
+from src.analysis.comparison.facet1_slice_utils import Facet1Analysis
+from src.common.analysis import AnalysisOutput
 from src.common.interfaces.chart import ChartConfig, ChartType, UnitType
 
 
-class Facet1UnifiedCalibrationCurvesAnalysis(Analysis):
+class Facet1UnifiedCalibrationCurvesAnalysis(Facet1Analysis):
     """Plot Kalshi, Polymarket, and pooled calibration curves from the unified dataset."""
-
-    def save(
-        self,
-        output_dir: Path | str,
-        formats: list[str] | None = None,
-        dpi: int = 300,
-    ) -> dict[str, Path]:
-        """Save only static formats for this non-animated analysis."""
-        if formats is None:
-            formats = ["png", "pdf", "csv", "json"]
-        else:
-            formats = [fmt for fmt in formats if fmt != "gif"]
-        return super().save(output_dir, formats, dpi)
+    default_formats = ["png", "pdf", "csv", "json"]
 
     def __init__(
         self,

@@ -9,11 +9,11 @@ import pandas as pd
 
 from src.analysis.comparison.facet1_slice_utils import (
     PLATFORM_COLORS,
+    Facet1Analysis,
     compute_bucket_calibration,
     compute_slice_summary,
 )
-from src.common.analysis import Analysis, AnalysisOutput
-
+from src.common.analysis import AnalysisOutput
 
 HORIZON_ORDER = ["30d", "7d", "3d", "1d", "6h", "1h"]
 HORIZON_COLORS = {
@@ -26,7 +26,7 @@ HORIZON_COLORS = {
 }
 
 
-class Facet1TimeToExpiryCalibrationAnalysis(Analysis):
+class Facet1TimeToExpiryCalibrationAnalysis(Facet1Analysis):
     """Compare calibration curves across fixed horizons before close."""
 
     def __init__(self, dataset_path: Path | str | None = None):
@@ -40,20 +40,13 @@ class Facet1TimeToExpiryCalibrationAnalysis(Analysis):
         )
         self.bucket_details: pd.DataFrame | None = None
 
-    def save(
+    def save_additional_outputs(
         self,
-        output_dir: Path | str,
-        formats: list[str] | None = None,
-        dpi: int = 300,
+        output_dir: Path,
+        formats: list[str],
     ) -> dict[str, Path]:
-        if formats is None:
-            formats = ["png", "pdf", "csv"]
-        else:
-            formats = [fmt for fmt in formats if fmt != "gif"]
-
-        saved = super().save(output_dir, formats, dpi)
+        saved: dict[str, Path] = {}
         if self.bucket_details is not None and "csv" in formats:
-            output_dir = Path(output_dir)
             detail_path = output_dir / f"{self.name}_bucket_details.csv"
             self.bucket_details.to_csv(detail_path, index=False)
             saved["bucket_details_csv"] = detail_path

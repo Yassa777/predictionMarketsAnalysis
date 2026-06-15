@@ -12,10 +12,15 @@ Outputs default to `data/derived/`:
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 import duckdb
 import pandas as pd
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 
 def parse_args() -> argparse.Namespace:
@@ -50,6 +55,8 @@ def assign_quintiles(group: pd.DataFrame) -> pd.DataFrame:
 
 
 def main() -> None:
+    from src.analysis.kalshi.util.categories import get_hierarchy
+
     args = parse_args()
     output_dir = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -107,6 +114,26 @@ def main() -> None:
         .replace("", "independent")
         .where(df["platform"] == "kalshi")
     )
+    df["category_group"] = pd.NA
+    df["category_mid"] = pd.NA
+    df["category_subcategory"] = pd.NA
+    kalshi_mask = df["platform"] == "kalshi"
+    if kalshi_mask.any():
+        category_hierarchy = (
+            df.loc[kalshi_mask, "category_raw"]
+            .fillna("independent")
+            .map(get_hierarchy)
+        )
+        category_hierarchy_df = pd.DataFrame(
+            category_hierarchy.tolist(),
+            columns=["category_group", "category_mid", "category_subcategory"],
+            index=df.index[kalshi_mask],
+        )
+        df.loc[
+            kalshi_mask,
+            ["category_group", "category_mid", "category_subcategory"],
+        ] = category_hierarchy_df
+
     df["close_ts"] = pd.to_datetime(df["close_ts"], utc=True)
     df["last_trade_ts"] = pd.to_datetime(df["last_trade_ts"], utc=True)
     kalshi_start = pd.to_datetime(df["open_time"].combine_first(df["created_time"]), utc=True)
@@ -148,6 +175,7 @@ def main() -> None:
     print(f"Wrote enriched market dataset: {output_path}")
     print(f"Rows: {len(df):,}")
     print(df.groupby("platform").size().to_string())
+    print("Kalshi category_group null rows:", int(df.loc[kalshi_mask, "category_group"].isna().sum()))
 
 
 if __name__ == "__main__":

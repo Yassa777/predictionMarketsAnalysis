@@ -8,24 +8,17 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from src.analysis.comparison.facet1_slice_utils import (
+    LIQUIDITY_ORDER,
     PLATFORM_COLORS,
+    Facet1Analysis,
     compute_bucket_calibration,
     compute_slice_summary,
     load_enriched_dataset,
 )
-from src.common.analysis import Analysis, AnalysisOutput
+from src.common.analysis import AnalysisOutput
 
 
-LIQUIDITY_ORDER = [
-    "Q1 Lowest",
-    "Q2 Low-Mid",
-    "Q3 Mid",
-    "Q4 Mid-High",
-    "Q5 Highest",
-]
-
-
-class Facet1LiquidityCalibrationAnalysis(Analysis):
+class Facet1LiquidityCalibrationAnalysis(Facet1Analysis):
     """Compare calibration across within-platform liquidity quintiles."""
 
     def __init__(self, dataset_path: Path | str | None = None):
@@ -36,20 +29,13 @@ class Facet1LiquidityCalibrationAnalysis(Analysis):
         self.dataset_path = Path(dataset_path) if dataset_path else None
         self.bucket_details: pd.DataFrame | None = None
 
-    def save(
+    def save_additional_outputs(
         self,
-        output_dir: Path | str,
-        formats: list[str] | None = None,
-        dpi: int = 300,
+        output_dir: Path,
+        formats: list[str],
     ) -> dict[str, Path]:
-        if formats is None:
-            formats = ["png", "pdf", "csv"]
-        else:
-            formats = [fmt for fmt in formats if fmt != "gif"]
-
-        saved = super().save(output_dir, formats, dpi)
+        saved: dict[str, Path] = {}
         if self.bucket_details is not None and "csv" in formats:
-            output_dir = Path(output_dir)
             detail_path = output_dir / f"{self.name}_bucket_details.csv"
             self.bucket_details.to_csv(detail_path, index=False)
             saved["bucket_details_csv"] = detail_path
